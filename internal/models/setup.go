@@ -28,7 +28,8 @@ func ConnectDB() {
 	}
 
 	if err != nil {
-		panic("Failed to connect to database!")
+		// This will print the EXACT reason why it failed in the logs
+		panic("Failed to connect to database: " + err.Error())
 	}
 
 	database.AutoMigrate(&User{}, &Expense{})
