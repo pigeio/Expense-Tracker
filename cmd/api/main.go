@@ -4,7 +4,6 @@ import (
 	"expense-tracker/internal/controllers"
 	"expense-tracker/internal/middleware"
 	"expense-tracker/internal/models"
-	"log"
 	"time" // <--- Added for CORS config
 
 	"github.com/gin-contrib/cors" // <--- Added for CORS
@@ -15,7 +14,7 @@ import (
 func main() {
 	// 1. Load Environment Variables
 	// We ignore the error here because on Render/Cloud, we use real Env Vars, not a .env file.
-	_ = godotenv.Load() 
+	_ = godotenv.Load()
 
 	// 2. Connect to Database
 	models.ConnectDB()
