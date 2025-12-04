@@ -24,7 +24,11 @@ func main() {
 
 	// --- FIX CORS ERROR (Allow Frontend to talk to Backend) ---
 	config := cors.DefaultConfig()
-	config.AllowAllOrigins = true // Allows localhost:5173 AND your Render URL
+	config.AllowAllOrigins = []string{
+		"http://localhost:5173",                     // Keep for local testing
+		"https://expense-tracker-phh4.onrender.com", // Your Backend URL
+		"lively-figolla-c1dd35.netlify.app",         // <--- PASTE YOUR NETLIFY URL HERE (No trailing slash /)
+	} // Allows localhost:5173 AND your Render URL
 	config.AllowMethods = []string{"POST", "GET", "PUT", "DELETE", "OPTIONS"}
 	config.AllowHeaders = []string{"Origin", "Content-Type", "Authorization", "Accept", "User-Agent", "Cache-Control", "Pragma"}
 	config.ExposeHeaders = []string{"Content-Length"}
